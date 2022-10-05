@@ -1,0 +1,1384 @@
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateContacts (20221005180601)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar NOT NULL, "last_name" varchar NOT NULL, "email" varchar NOT NULL, "note" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_contacts_on_email" ON "contacts" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221005180601"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-05 18:07:46.235211"], ["updated_at", "2022-10-05 18:07:46.235211"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-10-05 23:18:41 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mac/.rvm/gems/ruby-2.7.1/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mac/.rvm/gems/ruby-2.7.1/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.5ms | Allocations: 680)
+Completed 200 OK in 32ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 6535)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-05 23:19:31 +0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mac/.rvm/gems/ruby-2.7.1/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mac/.rvm/gems/ruby-2.7.1/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 357)
+Completed 200 OK in 4ms (Views: 2.8ms | Allocations: 1082)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:20:16 +0500
+  
+Zeitwerk::NameError (expected file /Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/application_controller.rb to define constant Api::V1::ApplicationController, but didn't):
+  
+app/controllers/api/v1/contacts_controller.rb:3:in `<module:V1>'
+app/controllers/api/v1/contacts_controller.rb:2:in `<module:Api>'
+app/controllers/api/v1/contacts_controller.rb:1:in `<main>'
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-10-05 23:20:17 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:21:28 +0500
+  
+SyntaxError (/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:19: syntax error, unexpected `end', expecting end-of-input
+  end
+  ^~~
+):
+  
+app/controllers/api/v1/contacts_controller.rb:19: syntax error, unexpected `end', expecting end-of-input
+app/controllers/api/v1/contacts_controller.rb:19: syntax error, unexpected `end', expecting end-of-input
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:21:59 +0500
+  
+Zeitwerk::NameError (expected file /Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/application_controller.rb to define constant Api::V1::ApplicationController, but didn't):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:01 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 15870ms (Allocations: 162726)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:47 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 38)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:49 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:52 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 31)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:52 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:53 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:53 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:53 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:54 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 31)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:54 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:54 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:54 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:55 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:30:55 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:06 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:15 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:16 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:16 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:16 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:17 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:17 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:17 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:17 +0500
+Processing by Api::V1::ContactsController#index as HTML
+Completed 204 No Content in 0ms (Allocations: 28)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:31:45 +0500
+Processing by Api::V1::ContactsController#index as */*
+Completed 204 No Content in 0ms (Allocations: 31)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:32:29 +0500
+Processing by Api::V1::ContactsController#index as */*
+Completed 204 No Content in 0ms (Allocations: 30)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:45:47 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 204 No Content in 781311ms (Allocations: 282498)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-05 23:59:18 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+    return json: {status: 400, message: "Idem...
+               ^
+):
+  
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting `end'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:02:02 +0500
+  
+SyntaxError (/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting '}'
+    return json {status: 400, message: "Idempotence k...
+                       ^
+/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected '}', expecting `end'
+...ge: "Idempotence key required"} if !request.headers["idemKey...
+...                              ^
+):
+  
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected '}', expecting `end'
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected '}', expecting `end'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:02:47 +0500
+  
+SyntaxError (/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting '}'
+    (return json {status: 400, message: "Idempotence k...
+                        ^
+/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected '}', expecting ')'
+...ge: "Idempotence key required"}) if !request.headers["idemKe...
+...                              ^
+/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:10: syntax error, unexpected `end', expecting ')'
+  end
+  ^~~
+/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:26: syntax error, unexpected `end', expecting ')'):
+  
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected '}', expecting ')'
+app/controllers/api/v1/contacts_controller.rb:10: syntax error, unexpected `end', expecting ')'
+app/controllers/api/v1/contacts_controller.rb:26: syntax error, unexpected `end', expecting ')'
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected '}', expecting ')'
+app/controllers/api/v1/contacts_controller.rb:10: syntax error, unexpected `end', expecting ')'
+app/controllers/api/v1/contacts_controller.rb:26: syntax error, unexpected `end', expecting ')'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:04:11 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:06:56 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:06:58 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:06:59 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:06:59 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:06:59 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:06:59 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:08:42 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:09:26 +0500
+  
+NameError (uninitialized constant ApplicationsController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:10:15 +0500
+  
+NameError (uninitialized constant ApplicationsController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:10:16 +0500
+  
+NameError (uninitialized constant ApplicationsController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:10:17 +0500
+  
+NameError (uninitialized constant ApplicationsController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:10:39 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:12:03 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:12:03 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:13:40 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:01 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:02 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:02 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:02 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:03 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:03 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:03 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:15:03 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:41 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:42 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:42 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:42 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:42 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:56 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:57 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:16:57 +0500
+  
+NameError (uninitialized constant ApplicationController
+Did you mean?  ApplicationRecord):
+  
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:22:23 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 15ms (Views: 0.2ms | Allocations: 14928)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:23:42 +0500
+  
+SyntaxError (/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected `if' modifier, expecting =>
+...mpotence key required"}, 400 if !request.headers["idemKey"]....
+...                             ^~
+):
+  
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected `if' modifier, expecting =>
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected `if' modifier, expecting =>
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:24:06 +0500
+  
+SyntaxError (/Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected `if' modifier, expecting =>
+...mpotence key required"}, 400 if !request.headers["idemKey"]....
+...                             ^~
+):
+  
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected `if' modifier, expecting =>
+app/controllers/api/v1/contacts_controller.rb:8: syntax error, unexpected `if' modifier, expecting =>
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:27:33 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Views: 0.1ms | Allocations: 119)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:28:13 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Views: 0.1ms | Allocations: 118)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:03 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Views: 0.1ms | Allocations: 115)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:05 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:05 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:10 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:10 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:11 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:11 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:14 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:14 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:30:14 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:38:45 +0500
+  
+NameError (undefined local variable or method `create' for Api::V1::ContactsController:Class):
+  
+app/controllers/api/v1/contacts_controller.rb:3:in `<class:ContactsController>'
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:39:34 +0500
+  
+NameError (undefined local variable or method `create' for Api::V1::ContactsController:Class):
+  
+app/controllers/api/v1/contacts_controller.rb:3:in `<class:ContactsController>'
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:39:35 +0500
+  
+NameError (undefined local variable or method `create' for Api::V1::ContactsController:Class):
+  
+app/controllers/api/v1/contacts_controller.rb:3:in `<class:ContactsController>'
+app/controllers/api/v1/contacts_controller.rb:2:in `<main>'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:39:46 +0500
+Processing by Api::V1::ContactsController#create as */*
+Filter chain halted as :check_idempotence_key rendered or redirected
+Completed 400 Bad Request in 0ms (Views: 0.2ms | Allocations: 134)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:41:34 +0500
+Processing by Api::V1::ContactsController#create as */*
+Filter chain halted as :check_idempotence_key rendered or redirected
+Completed 400 Bad Request in 0ms (Views: 0.1ms | Allocations: 128)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:41:37 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 2ms (Allocations: 510)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: cotnact):
+  
+app/controllers/api/v1/contacts_controller.rb:26:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:45:08 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+"contact":{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 151)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:26:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:48:16 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+"contact":{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 1ms (Allocations: 151)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:27:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:48:18 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+"contact":{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 117)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:27:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:48:44 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+contact:{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 116)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:27:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:48:45 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+contact:{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 116)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:27:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:48:57 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+contact:{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 17051ms (Allocations: 167845)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:28:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:11:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:49:40 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+contact:{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 83871ms (Allocations: 280045)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:28:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:51:23 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+contact:{
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 47001ms (Allocations: 137651)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:28:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:55:12 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+{"contact":
+      {
+        "first_name": "Muhammad",
+        "last_name": "Hamza",
+        "email": "hamza@email.com",
+        "note": "This contact is created by Muhammad Hamza",
+      }
+  
+}
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 19709ms (Allocations: 124060)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/contacts_controller.rb:28:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:56:38 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"company"=>{"name"=>"Auction", "address"=>"780 New Jersey"}, "contact"=>{}}
+Completed 400 Bad Request in 127121ms (ActiveRecord: 0.7ms | Allocations: 126331)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:28:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:58:55 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza@gamil.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Create (1.2ms)[0m  [1m[32mINSERT INTO "contacts" ("first_name", "last_name", "email", "note", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Muhammad"], ["last_name", "Hamza"], ["email", "hamza@gamil.com"], ["note", "This contact is saved by Hamza"], ["created_at", "2022-10-05 19:59:03.964898"], ["updated_at", "2022-10-05 19:59:03.964898"]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 8709ms (ActiveRecord: 3.2ms | Allocations: 202047)
+
+
+  
+NoMethodError (undefined method `save?' for #<Contact:0x00007fdf9e426f50>
+Did you mean?  save
+               save!):
+  
+app/controllers/api/v1/contacts_controller.rb:11:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 00:59:47 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza@gamil.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 5941ms (ActiveRecord: 1.0ms | Allocations: 133388)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:00:18 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Create (0.4ms)[0m  [1m[32mINSERT INTO "contacts" ("first_name", "last_name", "email", "note", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Muhammad"], ["last_name", "Hamza"], ["email", "hamza+1@gamil.com"], ["note", "This contact is saved by Hamza"], ["created_at", "2022-10-05 20:00:22.040534"], ["updated_at", "2022-10-05 20:00:22.040534"]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:11:in `create'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? AND "contacts"."id" != ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:11:in `create'
+Completed 200 OK in 3442ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 124867)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:00:33 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 2117ms (ActiveRecord: 0.2ms | Allocations: 122777)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:00:55 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mContact Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 212886ms (ActiveRecord: 0.8ms | Allocations: 495905)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:05:13 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mContact Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (rdbg)//Users/mac/Documents/tasks/dreamx-assessmennt/app/controllers/api/v1/contacts_controller.rb:1:in `contact_params'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza+1@gamil.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Completed 422 Unprocessable Entity in 651269ms (ActiveRecord: 1.5ms | Allocations: 424288)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/contacts_controller.rb:10:in `create'
+Started GET "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:18:31 +0500
+Processing by Api::V1::ContactsController#show as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}, "id"=>"1"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:21:in `show'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 2920)
+
+
+Started GET "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:18:37 +0500
+Processing by Api::V1::ContactsController#show as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}, "id"=>"1"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:21:in `show'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 622)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:19:47 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.9ms | Allocations: 3062)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:19:55 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 901)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:19:56 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms | Allocations: 901)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:21:28 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 901)
+
+
+Started PUT "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:30:28 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"contact"=>{"note"=>"This contact is saved by Hamza again"}, "id"=>"1"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? AND "contacts"."id" != ? LIMIT ?[0m  [["email", "hamza@gamil.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mContact Update (0.3ms)[0m  [1m[33mUPDATE "contacts" SET "note" = ?, "updated_at" = ? WHERE "contacts"."id" = ?[0m  [["note", "This contact is saved by Hamza again"], ["updated_at", "2022-10-05 20:30:37.475332"], ["id", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+Completed 200 OK in 8551ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 137494)
+
+
+Started PUT "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:31:21 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"contact"=>{"note"=>"This contact is saved by Hamza again"}, "id"=>"1"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? AND "contacts"."id" != ? LIMIT ?[0m  [["email", "hamza@gamil.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 4899)
+
+
+Started PUT "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:31:28 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"contact"=>{"note"=>"This contact is saved by Hamza again"}, "id"=>"1"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mContact Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? AND "contacts"."id" != ? LIMIT ?[0m  [["email", "hamza@gamil.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2377)
+
+
+Started PUT "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:31:45 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"contact"=>{"note"=>"This contact is saved by Hamza again"}, "id"=>"1"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mContact Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? AND "contacts"."id" != ? LIMIT ?[0m  [["email", "hamza@gamil.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 4857)
+
+
+Started PUT "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:31:57 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"contact"=>{"note"=>"This contact is saved by Hamza again"}, "id"=>"1"}
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:17:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? AND "contacts"."id" != ? LIMIT ?[0m  [["email", "hamza@gamil.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:18:in `update'
+Completed 400 Bad Request in 10ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 4857)
+
+
+Started DELETE "/api/v1/contacts/1" for 127.0.0.1 at 2022-10-06 01:33:38 +0500
+Processing by Api::V1::ContactsController#destroy as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}, "id"=>"1"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:32:in `destroy'
+  [1m[36mContact Destroy (1.0ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:32:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:32:in `destroy'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 4054)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:33:47 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 809)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:48:15 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+Filter chain halted as :check_content_type rendered or redirected
+Completed 400 Bad Request in 0ms (Views: 0.2ms | Allocations: 149)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:48:49 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza+1@gamil.com", "note"=>"This contact is saved by Hamza"}}
+Filter chain halted as :check_content_type rendered or redirected
+Completed 400 Bad Request in 0ms (Views: 0.1ms | Allocations: 103)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:48:56 +0500
+  
+ActionDispatch::Http::MimeNegotiation::InvalidType ("'text/csv'" is not a valid MIME type):
+  
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:49:07 +0500
+  
+ActionDispatch::Http::MimeNegotiation::InvalidType ("\"text/csv\"" is not a valid MIME type):
+  
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:49:22 +0500
+  
+ActionDispatch::Http::MimeNegotiation::InvalidType ("\"text/csv\"" is not a valid MIME type):
+  
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:49:52 +0500
+Processing by Api::V1::ContactsController#index as */*
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 2442)
+
+
+Started GET "/api/v1/contacts/2" for 127.0.0.1 at 2022-10-06 01:49:58 +0500
+Processing by Api::V1::ContactsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:30:in `show'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 749)
+
+
+Started PATCH "/api/v1/contacts/2" for 127.0.0.1 at 2022-10-06 01:51:01 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:21:in `update'
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.1ms | Allocations: 539)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:46:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:22:in `update'
+Started PATCH "/api/v1/contacts/2" for 127.0.0.1 at 2022-10-06 01:51:29 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:21:in `update'
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.1ms | Allocations: 537)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:46:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:22:in `update'
+Started PATCH "/api/v1/contacts/2" for 127.0.0.1 at 2022-10-06 01:51:40 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:22:in `update'
+Completed 400 Bad Request in 13633ms (ActiveRecord: 0.8ms | Allocations: 139203)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:23:in `update'
+Started PUT "/api/v1/contacts/2" for 127.0.0.1 at 2022-10-06 01:52:59 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:22:in `update'
+Completed 400 Bad Request in 11054ms (ActiveRecord: 0.2ms | Allocations: 130921)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:23:in `update'
+Started PUT "/api/v1/contacts/2" for 127.0.0.1 at 2022-10-06 01:53:39 +0500
+Processing by Api::V1::ContactsController#update as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:22:in `update'
+Completed 400 Bad Request in 60936ms (ActiveRecord: 0.2ms | Allocations: 130963)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:23:in `update'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:54:46 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 132)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:55:07 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 11027ms (Allocations: 136262)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:55:23 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 33368ms (Allocations: 127994)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:55:59 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 8365ms (Allocations: 129627)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:57:02 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 18857ms (Allocations: 257567)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:57:53 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 9052ms (Allocations: 136342)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 01:59:53 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 27462ms (Allocations: 145300)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:00:51 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 23938ms (Allocations: 127998)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:01:33 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 4818ms (Allocations: 121194)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:48:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:13:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:02:36 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 84ms (Allocations: 133092)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:02:45 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 38324ms (Allocations: 136919)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:03:34 +0500
+Processing by Api::V1::ContactsController#index as */*
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 1.0ms | Allocations: 2913)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:04:38 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 10450ms (Allocations: 136410)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:05:03 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 46063ms (ActiveRecord: 0.0ms | Allocations: 328663)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:06:35 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 26417ms (ActiveRecord: 0.0ms | Allocations: 128306)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:47:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:07:50 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 1ms (Allocations: 508)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:42:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:08:23 +0500
+Processing by Api::V1::ContactsController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+  [1m[36mContact Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Completed 422 Unprocessable Entity in 28ms (ActiveRecord: 1.1ms | Allocations: 21942)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: First name can't be blank, Last name can't be blank, Email can't be blank):
+  
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:08:41 +0500
+Processing by Api::V1::ContactsController#create as */*
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+  [1m[36mContact Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Completed 422 Unprocessable Entity in 4664ms (ActiveRecord: 0.9ms | Allocations: 140131)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: First name can't be blank, Last name can't be blank, Email can't be blank):
+  
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:09:13 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 1ms (Allocations: 474)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:42:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:09:58 +0500
+Processing by Api::V1::ContactsController#create as */*
+Completed 400 Bad Request in 4657ms (Allocations: 134481)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: contact):
+  
+app/controllers/api/v1/contacts_controller.rb:43:in `contact_params'
+app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:12:45 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza@email.com", "note"=>"This contact is created by Muhammad Hamza"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+  [1m[36mContact Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+  [1m[36mContact Create (0.4ms)[0m  [1m[32mINSERT INTO "contacts" ("first_name", "last_name", "email", "note", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Muhammad"], ["last_name", "Hamza"], ["email", "hamza@email.com"], ["note", "This contact is created by Muhammad Hamza"], ["created_at", "2022-10-05 21:12:50.798850"], ["updated_at", "2022-10-05 21:12:50.798850"]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:12:in `create'
+Completed 200 OK in 4693ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 199981)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:15:12 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza@email.com", "note"=>"This contact is created by Muhammad Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+  [1m[36mContact Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+Completed 400 Bad Request in 17ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 4311)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:16:01 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza@email.com", "note"=>"This contact is created by Muhammad Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+  [1m[36mContact Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+Completed 400 Bad Request in 14ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 5955)
+
+
+Started POST "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:16:31 +0500
+Processing by Api::V1::ContactsController#create as */*
+  Parameters: {"contact"=>{"last_name"=>"Hamza", "email"=>"hamza@email.com", "note"=>"This contact is created by Muhammad Hamza"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+  [1m[36mContact Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "contacts" WHERE "contacts"."email" = ? LIMIT ?[0m  [["email", "hamza@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/contacts_controller.rb:14:in `create'
+Completed 400 Bad Request in 9ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 5243)
+
+
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:22:53 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza@email.com", "note"=>"This contact is created by Muhammad Hamza"}}
+Completed 500 Internal Server Error in 1ms (Allocations: 349)
+
+
+  
+NameError (uninitialized constant #<Class:0x00007fe17b01fef0>::CSV):
+  
+app/models/contact.rb:12:in `to_csv'
+app/controllers/api/v1/contacts_controller.rb:9:in `index'
+Started GET "/api/v1/contacts" for 127.0.0.1 at 2022-10-06 02:23:25 +0500
+Processing by Api::V1::ContactsController#index as */*
+  Parameters: {"contact"=>{"first_name"=>"Muhammad", "last_name"=>"Hamza", "email"=>"hamza@email.com", "note"=>"This contact is created by Muhammad Hamza"}}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/models/contact.rb:16:in `block in to_csv'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 2593)
+
+
